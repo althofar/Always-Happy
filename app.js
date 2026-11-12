@@ -35,7 +35,10 @@
 
   const audio = $('#weddingMusic'); const musicBtn = $('#musicToggle');
   audio.volume = 0.2;
-  if (cfg.musicUrl) audio.querySelector('source').src = cfg.musicUrl;
+  if (cfg.musicUrl) {
+    audio.querySelector('source').src = cfg.musicUrl;
+    audio.load(); // Memuat file audio terlebih dahulu di latar belakang
+  }
   let userPaused = false; // true = tamu sendiri yang menjeda, jangan diputar otomatis lagi
   const showMusicState = () => { musicBtn.innerHTML = audio.paused ? '♫ <span>Putar musik</span>' : '♫ <span>Jeda musik</span>'; };
   audio.addEventListener('play', showMusicState); audio.addEventListener('pause', showMusicState);
