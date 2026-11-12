@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#4b1834"><meta name="description" content="Undangan pernikahan digital">
+  <title>Undangan Pernikahan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="./config.js?v=20261023fix1"></script>
+</head>
+<body>
+  <audio id="weddingMusic" loop preload="none"><source src="" type="audio/mpeg"></audio>
+  <button class="music-toggle" id="musicToggle" aria-label="Putar atau jeda musik">♫ <span>Putar musik</span></button>
+  <main>
+    <section class="hero paper-section" id="home">
+      <div class="hero-flower flower-left" aria-hidden="true">✿</div><div class="hero-flower flower-right" aria-hidden="true">❀</div>
+      <p class="eyebrow hand">A little celebration of love</p>
+      <h1 class="hand headline">We’re getting<br>married!</h1>
+      <figure class="couple-photo"><img src="images/althof-haye.png" alt="Althof dan Haye" onerror="this.style.visibility='hidden'"></figure>
+      <h2 class="couple-name hand"><span data-bride>Haye</span> <i>&</i> <span data-groom>Althof</span></h2>
+      <p class="date-line" data-date-label>Sabtu, 23 Januari 2027</p>
+      <p class="guest-greeting">Kepada Yth.<br><strong id="guestName">Bapak/Ibu/Saudara/i</strong></p>
+      <button class="primary-btn" id="openInvitation">Buka undangan <span>↓</span></button>
+      <p class="tiny-note">Scroll slowly, there’s love on every page ✦</p>
+    </section>
+
+    <section class="intro section-pad" id="intro">
+      <p class="eyebrow">WITH LOVE & GRATITUDE</p><div class="mini-flower">✿</div>
+      <h2 class="hand section-title">The beginning of<br>our forever</h2>
+      <p class="body-copy">Dengan penuh rasa syukur dan kebahagiaan, kami mengundang Anda untuk menjadi bagian dari hari istimewa kami. Doa dan kehadiran Anda akan menjadi hadiah yang sangat berarti bagi kami.</p>
+      <div class="names-card"><span class="hand large-name" >Haura Yumna</span><p>Putri dari<br><strong>Bapak Bambang & Ibu Aftanti</strong></p><span class="ampersand hand">&</span><span class="hand large-name">Althof Abdan</span><p>Putra dari<br><strong>Bapak Budi & Ibu Diah</strong></p></div>
+    </section>
+
+    <section class="countdown-section section-pad" id="countdown">
+      <div class="sparkle">✦　✧　✦</div><p class="eyebrow light">OUR BIG DAY AWAITS</p><h2 class="hand light-title">Counting down to<br>our happily ever after</h2>
+      <div class="countdown" aria-live="polite"><div><strong id="days">000</strong><span>HARI</span></div><i>:</i><div><strong id="hours">00</strong><span>JAM</span></div><i>:</i><div><strong id="minutes">00</strong><span>MENIT</span></div><i>:</i><div><strong id="seconds">00</strong><span>DETIK</span></div></div>
+      <div class="disco-balls"><span>✧</span><span>✦</span><span>✧</span></div>
+    </section>
+
+    <section class="event-section section-pad" id="event">
+      <p class="eyebrow">SAVE THE DATE</p><h2 class="hand section-title">A day to remember</h2>
+      <div class="event-card"><div class="event-icon">♡</div><h3>Akad Nikah</h3><p class="event-date" data-date-label>Sabtu, 23 Januari 2027</p><p data-akad-time>08.00 WIB — selesai</p><p class="event-place" data-venue>Nama Gedung / Lokasi Acara</p><a class="text-link" data-map-link href="https://maps.google.com" target="_blank" rel="noreferrer">Lihat lokasi ↗</a></div>
+      <div class="event-card"><div class="event-icon">✦</div><h3>Resepsi</h3><p class="event-date" data-date-label>Sabtu, 23 Januari 2027</p><p data-resepsi-time>11.00–13.00 WIB</p><p class="event-place" data-venue>Nama Gedung / Lokasi Acara</p><a class="text-link" data-map-link href="https://maps.google.com" target="_blank" rel="noreferrer">Petunjuk arah ↗</a></div>
+      <a class="primary-btn calendar-link" id="calendarLink" href="#">Simpan tanggal ke kalender +</a>
+    </section>
+
+    <section class="location-section section-pad" id="location"><p class="eyebrow">COME CELEBRATE WITH US</p><h2 class="hand section-title">Find your way</h2><p class="body-copy" data-venue>Nama Gedung / Lokasi Acara</p><p class="muted-copy" data-address>Alamat lengkap lokasi acara akan ditulis di sini.</p><div class="map-frame"><iframe id="mapFrame" title="Peta lokasi acara" src="https://maps.google.com/maps?q=Kudus%20Jawa%20Tengah&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div><a class="primary-btn" data-map-link href="https://maps.google.com" target="_blank" rel="noreferrer">Buka Google Maps ↗</a></section>
+
+    <section class="rsvp-section section-pad" id="rsvp"><p class="eyebrow">LET US KNOW</p><h2 class="hand section-title">Will you be there?</h2><p class="body-copy">Bantu kami menyiapkan hari istimewa ini dengan mengonfirmasi kehadiranmu.</p>
+      <form id="rsvpForm" class="rsvp-form"><label>Nama lengkap<input name="name" id="rsvpName" required maxlength="150" placeholder="Nama kamu"></label><label>Konfirmasi kehadiran<select name="attendance" required><option value="">Pilih jawaban</option><option value="Hadir">Dengan senang hati hadir</option><option value="Tidak hadir">Maaf, belum bisa hadir</option></select></label><label>Jumlah tamu<select name="guests"><option value="1">1 orang</option><option value="2">2 orang</option><option value="3">3 orang</option><option value="4">4 orang</option></select></label><label>Catatan (opsional)<textarea name="note" rows="3" maxlength="1000" placeholder="Ada pesan untuk kami?"></textarea></label><button class="primary-btn" type="submit">Kirim RSVP ♥</button><p id="rsvpMessage" class="form-message" role="status"></p></form>
+    </section>
+
+    <section class="wishes-section section-pad" id="wishes"><p class="eyebrow">A LITTLE LOVE GOES A LONG WAY</p><h2 class="hand section-title">Wishes & prayers</h2><p class="body-copy">Tinggalkan doa dan ucapan manis untuk perjalanan baru kami.</p><form id="wishForm" class="rsvp-form wish-form"><label>Nama<input name="name" required maxlength="150" placeholder="Nama kamu"></label><label>Ucapan & doa<textarea name="message" required rows="4" maxlength="2000" placeholder="Semoga kalian selalu..."></textarea></label><button class="primary-btn" type="submit">Kirim ucapan ✦</button><p id="wishMessage" class="form-message" role="status"></p></form><div id="wishesList" class="wishes-list"><p class="muted-copy">Jadilah yang pertama mengirim ucapan 💌</p></div></section>
+
+    <section class="gift-section section-pad" id="gift"><p class="eyebrow">YOUR PRESENCE IS THE BEST GIFT</p><h2 class="hand section-title">Wedding gift</h2><div class="gift-illustration">♡<span>✿</span></div><p class="body-copy">Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Jika ingin berbagi tanda kasih, Anda dapat mengirimkannya melalui informasi berikut.</p><div class="bank-card"><div class="bank-brand">BANK <b>TRANSFER</b></div><p class="bank-owner" data-account-name=>Afra Simpatia Haura Yumna</p><p class="bank-number" data-account>0000000000</p><p class="bank-caption" data-bank>Nama Bank</p><button class="outline-btn" data-copy-account>Salin nomor rekening</button></div><div class="bank-card digital-wallet"><div class="bank-brand">WEDDING <b>GIFT</b></div><p class="bank-owner" data-wallet-name>Nama penerima</p><p class="bank-number gift-address" data-gift-address></p><p class="bank-caption">Wedding Gift</p><button class="outline-btn" data-copy-wallet>Salin Alamat</button></div><p id="copyMessage" class="form-message"></p></section>
+
+    <section class="closing-section section-pad"><div class="closing-flower">✿</div><figure class="couple-photo small-photo"><img src="images/althof-haye.png" alt="Althof dan Haye" onerror="this.style.visibility='hidden'"></figure><p class="body-copy">Merupakan suatu kebahagiaan bagi kami apabila Anda berkenan hadir dan memberikan doa restu.</p><h2 class="hand section-title">See you at<br>our wedding day!</h2><p class="hand closing-names"><span data-bride>Althof</span> & <span data-groom>Haye</span></p><p class="big-note">#ALwaysHAppy</p></section>
+  </main>
+  <footer><span>© <span id="year"></span> Wedding of <span data-bride>Althof</span> & <span data-groom>Haye</span></span><a href="admin.html">Admin</a></footer>
+  <script src="./app.js?v=20261023fix1"></script>
+</body></html>
